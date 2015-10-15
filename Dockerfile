@@ -12,9 +12,12 @@ ADD templates/ /home/python/templates/
 RUN pip install -q --upgrade pip
 RUN pip install -q -r /home/python/requirements.txt
 
-# Exposing port 80
-EXPOSE 80
+# The web ports -- this will be overriden by PCF
+ENV VCAP_APP_PORT 8080
+
+# Exposing port 8888
+EXPOSE 8080:8080
 
 # Entry point
 WORKDIR /home/python
-ENTRYPOINT ["python", "app.py"]
+CMD python -u app.py

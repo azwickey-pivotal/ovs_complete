@@ -6,7 +6,7 @@ import uuid, os
 server = Flask(__name__)
 host = '0.0.0.0'
 port = os.getenv('VCAP_APP_PORT', '80')
-debug = False
+debug = True
 
 # In-memory Databases - Dynamic Dictionaries
 orders = dict()
